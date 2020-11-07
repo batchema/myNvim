@@ -30,10 +30,21 @@ set number
 "autosave
 autocmd TextChanged,TextChangedI <buffer> silent write
 
-"formatting per file type
-autocmd Filetype c setlocal tabstop=2
-autocmd Filetype c setlocal shiftwidth=2
-autocmd Filetype c setlocal expandtab
+""""""" general formatting per file type
+""C, javascript, python tab size
+"(active config)
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+filetype plugin indent on
+
+"autocmd Filetype c setlocal tabstop=2
+"autocmd Filetype c setlocal shiftwidth=2
+"autocmd Filetype c setlocal expandtab
+"
+"autocmd Filetype js setlocal tabstop=2
+"autocmd Filetype js setlocal shiftwidth=2
+"autocmd Filetype js setlocal expandtab
 
 "*************** Theming ******************"
 if (has("termguicolors"))
