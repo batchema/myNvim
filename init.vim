@@ -103,7 +103,7 @@ let g:fzf_action = {
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 "*************** Intellisense and Syntax Highlighting ******************"
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-java']
 "*************** Tab Navigation ******************"
 "gt   	go to next tab
 "gT  	go to previous tab
