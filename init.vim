@@ -2,12 +2,20 @@
 call plug#begin("~/.vim/plugged")
 "Theming
 Plug 'dracula/vim'
+
 "File Explorer
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+
 "File Search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
+"Intellisense and Syntax Highlighting
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Typescript Support
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 call plug#end()
 
@@ -90,6 +98,12 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
   \}
 
+" requires silversearcher-ag (sudo apt-get|brew install silversearch-ag)
+" used to ignore gitignore files
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+"*************** Intellisense and Syntax Highlighting ******************"
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
 "*************** Tab Navigation ******************"
 "gt   	go to next tab
 "gT  	go to previous tab
