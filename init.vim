@@ -38,6 +38,10 @@ set shiftwidth=2
 set softtabstop=2
 filetype plugin indent on
 
+"consider .ejs as html
+autocmd BufWritePre *.ejs :setfiletype html
+"autocmd BufWritePost *.ejs :setfiletype jst
+au BufNewFile,BufRead *.ejs set filetype=html
 "autocmd Filetype c setlocal tabstop=2
 "autocmd Filetype c setlocal shiftwidth=2
 "autocmd Filetype c setlocal expandtab
@@ -114,7 +118,43 @@ let g:fzf_action = {
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 "*************** Intellisense and Syntax Highlighting ******************"
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-java']
+let g:coc_global_extensions = [
+      \'coc-emmet', 
+      \'coc-pairs',
+      \'coc-css', 
+      \'coc-html', 
+      \'coc-json', 
+      \'coc-prettier', 
+      \'coc-tsserver', 
+      \'coc-java',
+      \'coc-eslint',
+      \'coc-snippets'
+      \]
+
+"Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+"Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+"Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 "*************** Tab Navigation ******************"
 "gt   	go to next tab
 "gT  	go to previous tab
