@@ -10,10 +10,10 @@
   ],
   "eslint.filetypes": [
     "javascript",
-    "typescript",
-    "typescriptreact",
+    //    "typescript",
+    //   "typescriptreact",
     "javascriptreact",
-    "typescript.tsx",
+    //  "typescript.tsx",
     "html.html"
   ],
   "coc.preferences.diagnostic.virtualText": true
