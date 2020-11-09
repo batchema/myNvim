@@ -16,5 +16,6 @@
     //  "typescript.tsx",
     "html.html"
   ],
-  "coc.preferences.diagnostic.virtualText": true
+  "coc.preferences.diagnostic.virtualText": true,
+  "snippets.ultisnips.usePythonx": false
 }

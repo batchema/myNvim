@@ -13,10 +13,11 @@ Plug 'junegunn/fzf.vim'
 
 "Intellisense and Syntax Highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"Typescript Support
+"JSX 
+Plug 'maxmellon/vim-jsx-pretty'
+"Typescript 
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-
 call plug#end()
 
 "*************** General ******************"
