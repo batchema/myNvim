@@ -2,6 +2,7 @@
 call plug#begin("~/.vim/plugged")
 "Theming
 Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
 
 "File Explorer
 Plug 'scrooloose/nerdtree'
@@ -14,10 +15,14 @@ Plug 'junegunn/fzf.vim'
 "Intellisense and Syntax Highlighting
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "JSX 
-Plug 'maxmellon/vim-jsx-pretty'
+"Plug 'maxmellon/vim-jsx-pretty'
 "Typescript 
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'peitalin/vim-jsx-typescript'
+"One Plugin to replace them all
+Plug 'sheerun/vim-polyglot'
+"Added as ejs highlighting dependency
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 "*************** General ******************"
@@ -41,8 +46,9 @@ filetype plugin indent on
 
 "consider .ejs as html
 autocmd BufWritePre *.ejs :setfiletype html
-"autocmd BufWritePost *.ejs :setfiletype jst
+autocmd BufWritePost *.ejs :setfiletype jst
 au BufNewFile,BufRead *.ejs set filetype=html
+
 "autocmd Filetype c setlocal tabstop=2
 "autocmd Filetype c setlocal shiftwidth=2
 "autocmd Filetype c setlocal expandtab
@@ -56,7 +62,8 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
-colorscheme dracula
+colorscheme gruvbox
+set background=dark
 
 "*************** File Explorer ******************"
 " CTRL-B to open and close the side explorer
