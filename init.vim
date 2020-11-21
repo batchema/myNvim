@@ -3,10 +3,16 @@ call plug#begin("~/.vim/plugged")
 "Theming
 Plug 'dracula/vim'
 Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'jacoborus/tender.vim'
+Plug 'sainnhe/sonokai'
 
 "File Explorer
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+
+"Comments
+Plug 'preservim/nerdcommenter'
 
 "File Search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -32,6 +38,10 @@ inoremap kk <Esc>
 
 "show line number
 set number
+
+"leader key
+let mapleader = " "
+
 
 "autosave
 autocmd TextChanged,TextChangedI <buffer> silent write
@@ -62,7 +72,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
-colorscheme gruvbox
+colorscheme tender
 set background=dark
 
 "*************** File Explorer ******************"
@@ -138,7 +148,7 @@ let g:coc_global_extensions = [
       \'coc-eslint',
       \'coc-snippets'
       \]
-
+"let g:coc_disable_startup_warning = 1 
 "Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
