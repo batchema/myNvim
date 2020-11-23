@@ -72,7 +72,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
-colorscheme tender
+colorscheme onedark
 set background=dark
 
 "*************** File Explorer ******************"
