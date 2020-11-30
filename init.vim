@@ -7,7 +7,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'jacoborus/tender.vim'
 Plug 'sainnhe/sonokai'
 
-"File Explorer
+"File Explorer10
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 
@@ -40,6 +40,8 @@ inoremap kk <Esc>
 set number
 
 "leader key
+"nnoremap <SPACE> <Nop>
+"map <Space> <Leader>
 let mapleader = " "
 
 
@@ -72,7 +74,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
-colorscheme onedark
+colorscheme gruvbox
 set background=dark
 
 "*************** File Explorer ******************"
@@ -104,7 +106,7 @@ au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " open terminal on ctrl+n
 function! OpenTerminal()
   split term://bash
-  resize 10
+  resize 20
 endfunction
 nnoremap <c-n> :call OpenTerminal()<CR>
 " use alt+hjkl to move between split/vsplit panels
@@ -112,10 +114,10 @@ tnoremap <A-h> <C-\><C-n><C-w>h
 tnoremap <A-j> <C-\><C-n><C-w>j
 tnoremap <A-k> <C-\><C-n><C-w>k
 tnoremap <A-l> <C-\><C-n><C-w>l
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
+nnoremap <leader>h <C-w>h
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
 
 "*************** File Searching ******************"
 " Configuration
