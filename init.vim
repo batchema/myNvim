@@ -25,10 +25,14 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Typescript 
 "Plug 'leafgarland/typescript-vim'
 "Plug 'peitalin/vim-jsx-typescript'
+
 "One Plugin to replace them all
 Plug 'sheerun/vim-polyglot'
 "Added as ejs highlighting dependency
 Plug 'pangloss/vim-javascript'
+
+"C and C++ syntax highlighting
+Plug 'bfrg/vim-cpp-modern'
 call plug#end()
 
 "*************** General ******************"
@@ -43,7 +47,6 @@ set number
 "nnoremap <SPACE> <Nop>
 "map <Space> <Leader>
 let mapleader = " "
-
 
 "autosave
 autocmd TextChanged,TextChangedI <buffer> silent write
@@ -74,7 +77,7 @@ if (has("termguicolors"))
  set termguicolors
 endif
 syntax enable
-colorscheme gruvbox
+colorscheme dracula
 set background=dark
 
 "*************** File Explorer ******************"
@@ -106,7 +109,7 @@ au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " open terminal on ctrl+n
 function! OpenTerminal()
   split term://bash
-  resize 20
+  resize 15
 endfunction
 nnoremap <c-n> :call OpenTerminal()<CR>
 " use <leader>+hjkl to move between split/vsplit panels
@@ -137,7 +140,7 @@ let g:fzf_action = {
 " used to ignore gitignore files
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
-"*************** Intellisense and Syntax Highlighting ******************"
+"*************** Intellisense and Syntax Highlighting (COC configs)******************"
 let g:coc_global_extensions = [
       \'coc-emmet', 
       \'coc-pairs',
@@ -150,6 +153,68 @@ let g:coc_global_extensions = [
       \'coc-eslint',
       \'coc-snippets'
       \]
+
+"*** From ianding.io *****"
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+" Tab completion
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+"********************"
+
 "let g:coc_disable_startup_warning = 1 
 "Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -174,6 +239,15 @@ endfunction
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+"****** C and C++ Syntax highlighting **********""
+
+" Highlight struct/class member variables (affects both C and C++ files)
+let g:cpp_member_highlight = 1
+
+" Put all standard C and C++ keywords under Vim's highlight group 'Statement'
+" (affects both C and C++ files)
+let g:cpp_simple_highlight = 1
 
 "*************** Tab Navigation ******************"
 "gt   	go to next tab
