@@ -8,16 +8,5 @@
     "typescript.tsx",
     "html.html"
   ],
-  "eslint.filetypes": [
-    "javascript",
-    //    "typescript",
-    //   "typescriptreact",
-    "javascriptreact",
-    //  "typescript.tsx",
-    "html.html"
-  ],
-  "coc.preferences.diagnostic.virtualText": true,
-  "snippets.ultisnips.usePythonx": false,
-  "clangd.path": "/home/cis240/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
-  "clangd.enabled": true
+  "snippets.ultisnips.usePythonx": false
 }

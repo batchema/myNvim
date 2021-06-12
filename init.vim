@@ -1,40 +1,39 @@
 "*************** Plugins ******************"
 call plug#begin("~/.vim/plugged")
 "Theming
-Plug 'dracula/vim'
-Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
-Plug 'jacoborus/tender.vim'
-Plug 'sainnhe/sonokai'
-
-"File Explorer10
-Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-
-"Comments
-Plug 'preservim/nerdcommenter'
-
-"File Search
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-
-"Intellisense and Syntax Highlighting
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"JSX 
-"Plug 'maxmellon/vim-jsx-pretty'
-"Typescript 
-"Plug 'leafgarland/typescript-vim'
-"Plug 'peitalin/vim-jsx-typescript'
-
-"One Plugin to replace them all
-Plug 'sheerun/vim-polyglot'
-"Added as ejs highlighting dependency
-Plug 'pangloss/vim-javascript'
-
-"C and C++ syntax highlighting
-Plug 'bfrg/vim-cpp-modern'
+  Plug 'dracula/vim'
+  Plug 'morhetz/gruvbox'
+  Plug 'joshdick/onedark.vim'
+  Plug 'jacoborus/tender.vim'
+  Plug 'sainnhe/sonokai'
+  
+  "File Explorer10
+  Plug 'scrooloose/nerdtree'
+  Plug 'ryanoasis/vim-devicons'
+  
+  "Comments
+  Plug 'preservim/nerdcommenter'
+  
+  "File Search
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  Plug 'junegunn/fzf.vim'
+  
+  "Intellisense and Syntax Highlighting
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  "JSX 
+  "Plug 'maxmellon/vim-jsx-pretty'
+  "Typescript 
+  "Plug 'leafgarland/typescript-vim'
+  "Plug 'peitalin/vim-jsx-typescript'
+  
+  "One Plugin to replace them all
+  Plug 'sheerun/vim-polyglot'
+  "Added as ejs highlighting dependency
+  Plug 'pangloss/vim-javascript'
+  
+  "C and C++ syntax highlighting
+  Plug 'bfrg/vim-cpp-modern'
 call plug#end()
-
 "*************** General ******************"
 "Map jj and kk to <Esc> in Insert Mode
 inoremap jj <Esc>
